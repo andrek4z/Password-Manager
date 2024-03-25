@@ -1,4 +1,6 @@
 import java.util.Scanner
+import java.io.BufferedReader
+import java.util.*
 
 // Class to hold user credentials
 data class User(val username: String, val password: String)
@@ -36,7 +38,7 @@ class PasswordManager
     }
 }
 
-fun main() 
+fun main(args : Array<String>) 
 {
     val passwordManager = PasswordManager()
     val scanner = Scanner(System.`in`)
@@ -49,7 +51,7 @@ fun main()
         println("1. Add User")
         println("2. Show Users")
         println("3. Exit")
-        print("Enter your choice: ")
+        println("Enter your choice: ")
         val choice = scanner.nextInt()
 
         when (choice) 
@@ -58,7 +60,7 @@ fun main()
             {
                 passwordManager.addUser()
                 println("Do you want to add another user? (yes/no)")
-                val answer = scanner.next().toLowerCase()
+                val answer = scanner.next()
                 continueProgram = answer == "yes"
             }
             2 -> 
